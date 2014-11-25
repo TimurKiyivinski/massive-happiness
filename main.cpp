@@ -2,6 +2,7 @@
 // Author: Timothy Kiyui (4316886)
 
 #include "Die.h"
+#include "Dice.h"
 #include <iostream>
 
 using namespace std;
@@ -11,49 +12,23 @@ using namespace std;
 
 int main(void)
 {
-    int sideNo(-1);
     char input;
-    while (sideNo < 2) // Create the first Die, sides must be more than 1
+    // Two normal die
+    Die *dieOne = new Die(6);
+    Die *dieTwo = new Die(6);
+    Dice *myDice = new Dice();
+    myDice->add_dice(dieOne);
+    myDice->add_dice(dieTwo);
+    // Main loop to test myDice
+    for (int loopVar(0); loopVar < 10; loopVar++)
     {
-        println("Please input the number of sides for Die 1:");
-        cin >> sideNo;
-    }
-    Die *dieOne = new Die(sideNo);
-    sideNo = -1;
-    while (sideNo < 2) // Create the second Die, sides must be more than 1
-    {
-        println("Please input the number of sides for Die 2:");
-        cin >> sideNo;
-    }
-    Die *dieTwo = new Die(sideNo);
-    // Main loop for user input
-    while (input != 'q' && input != 'Q')
-    {
-        println("\nInput:\nR: Roll dice\nV: View dice\nQ: Quit\n");
-        cout << "Input: ";
-        cin >> input;
-        switch (input)
-        {
-            case 'r': case 'R':
-                // Roll the dice to get new values
-                println("Rolling dice!");
-                dieOne->roll();
-                dieTwo->roll();
-                break;
-            case 'v': case 'V':
-                // Print the top values of each die
-                println("Top values:");
-                println("Die One:");
-                println(dieOne->get_top_value());
-                println("Die Two:");
-                println(dieTwo->get_top_value());
-                break;
-            case 'q': case 'Q':
-                println("Goodbye!");
-                break;
-            default:
-                println("Invalid input!");
-        }
+        println("Total value:");
+        println(myDice->get_total_value());
+        println("Values the same:");
+        myDice->all_same() ?
+            (cout << "True" << endl):
+            (cout << "False" << endl);
+        myDice->roll();
     }
     return 0;
 }

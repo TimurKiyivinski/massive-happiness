@@ -6,7 +6,7 @@ CFLAGS = -std=c++0x
 #TARGET is the name of your main file
 TARGET = main
 #OBJECTS = $(TARGET).o library1.o library.o, all the header files here
-OBJECTS = $(TARGET).o Die.o
+OBJECTS = $(TARGET).o Die.o Dice.o
 
 #Do not modify
 $(TARGET) : $(OBJECTS)
