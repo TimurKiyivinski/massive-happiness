@@ -7,6 +7,8 @@
 
 Die::Die(int sides): _sides(sides)
 {
+    // Create a seed
+    srand (time(NULL));
     // Create an initial value for the die
     roll();
 }
@@ -14,7 +16,6 @@ Die::Die(int sides): _sides(sides)
 void Die::roll()
 {
     // Create a random value from range 1 - _sides
-    srand (time(NULL));
     _top_value = (rand() % _sides) + 1;
 }
 
