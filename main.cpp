@@ -1,3 +1,6 @@
+// File: main.cpp
+// Author: Timothy Kiyui (4316886)
+
 #include "Die.h"
 #include <iostream>
 
