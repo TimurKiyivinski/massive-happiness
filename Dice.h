@@ -7,8 +7,6 @@
 #include "Die.h"
 #include <vector>
 
-using namespace std;
-
 class Dice
 {
     private:
