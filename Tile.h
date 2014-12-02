@@ -6,6 +6,7 @@
 
 #include "Dice.h"
 #include "Player.h"
+#include "Action.h"
 #include <vector>
 #include <string>
 
@@ -22,6 +23,9 @@ class Tile
         vector<Player*> _players;
         // The name of the tile
         string _name;
+        // Pass and land actions
+        Action* _pass_action;
+        Action* _land_action;
     public:
         // Constructor
         Tile(string name);
@@ -39,5 +43,10 @@ class Tile
         string str();
         // Gets the tile name
         string get_name();
+        // Action methods
+        Action* pass_action();
+        void set_pass_action(Action *value);
+        Action* land_action();
+        void set_land_action(Action *value);
 };
 #endif

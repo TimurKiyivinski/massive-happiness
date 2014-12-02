@@ -4,6 +4,7 @@
 #include "Tile.h"
 #include "Dice.h"
 #include "Player.h"
+#include "Action.h"
 #include <vector>
 #include <string>
 #include <algorithm>
@@ -65,3 +66,19 @@ string Tile::str()
 }
 
 string Tile::get_name() { return _name; }
+
+Action* Tile::pass_action() { return _pass_action; }
+
+void Tile::set_pass_action(Action* value)
+{
+    if (value != NULL)
+        _pass_action = value;
+}
+
+Action* Tile::land_action() { return _land_action; }
+
+void Tile::set_land_action(Action* value)
+{
+    if (value != NULL)
+        _land_action = value;
+}
