@@ -1,4 +1,4 @@
-// File: MonopolyEvent.h
+// File: MonopolyEvent.cpp
 // Author: Timothy Kiyui (4316886)
 
 #include "MonopolyEvent.h"

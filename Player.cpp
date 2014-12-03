@@ -1,4 +1,4 @@
-// File: Player.h
+// File: Player.cpp
 // Author: Timothy Kiyui (4316886)
 
 #include "Player.h"

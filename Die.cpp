@@ -1,4 +1,4 @@
-// File: Die.h
+// File: Die.cpp
 // Author: Timothy Kiyui (4316886)
 
 #include "Die.h"

@@ -1,4 +1,4 @@
-// File: Board.h
+// File: Board.cpp
 // Author: Timothy Kiyui (4316886)
 
 #include "Board.h"

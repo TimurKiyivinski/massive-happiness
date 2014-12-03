@@ -1,4 +1,4 @@
-// File: Tile.h
+// File: Tile.cpp
 // Author: Timothy Kiyui (4316886)
 
 #include "Tile.h"

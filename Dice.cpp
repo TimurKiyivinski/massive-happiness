@@ -1,4 +1,4 @@
-// File: Die.h
+// File: Dice.cpp
 // Author: Timothy Kiyui (4316886)
 
 #include "Dice.h"
