@@ -13,7 +13,18 @@ using namespace std;
 
 // Initializes the tile name
 Tile::Tile(string name): _name(name)
-{   
+{
+    _pass_action = NULL;
+    _land_action = NULL;
+}
+
+// Removes actions, if any
+Tile::~Tile()
+{
+    if (_pass_action != NULL)
+        delete _pass_action;
+    if (_land_action != NULL)
+        delete _land_action;
 }
 
 void Tile::move(Player *p, Dice *d, int remaining)
@@ -22,12 +33,20 @@ void Tile::move(Player *p, Dice *d, int remaining)
     if (remaining == 0)
         p->place_on(this);
     else
+    {
+        if (_pass_action != NULL)
+            _pass_action->perform(p);
         _next->move(p, d, --remaining); // Calls the next tile to move player
+    }
 }
 
 void Tile::land(Player *p)
 {
+    // Puts a player on the tile
     _players.push_back(p);
+    // Runs the land action if exists
+    if (_land_action != NULL)
+        _land_action->perform(p);
 }
 
 void Tile::leave(Player *p)
@@ -65,8 +84,10 @@ string Tile::str()
     return returnStr;
 }
 
+// Returns the tile name
 string Tile::get_name() { return _name; }
 
+// Get and set methods for tile actions
 Action* Tile::pass_action() { return _pass_action; }
 
 void Tile::set_pass_action(Action* value)

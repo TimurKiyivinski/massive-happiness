@@ -6,11 +6,11 @@ CFLAGS = -std=c++0x
 #TARGET is the name of your main file
 TARGET = main
 #OBJECTS = $(TARGET).o library1.o library.o, all the header files here
-OBJECTS = $(TARGET).o Die.o Dice.o Tile.o Player.o Board.o
+OBJECTS = $(TARGET).o MonopolyEvent.o Dice.o Die.o Player.o Tile.o Board.o MoveAction.o TransAction.o MonopolyGame.o 
 
 #Do not modify
 $(TARGET) : $(OBJECTS)
-		$(CC) $(CFLAGS) $(OBJECTS) -o $(TARGET).bin
+		$(CC) $(CFLAGS) -o $(TARGET).bin $(OBJECTS)
 
 #%.c or %.cpp
 %.o : %.cpp

@@ -4,7 +4,7 @@
 #ifndef ACTION_H
 #define ACTION_H
 
-#include "Player.h"
+class Player;
 
 class Action
 {

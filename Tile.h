@@ -14,6 +14,8 @@ using namespace std;
 
 class Player;
 
+class Tile;
+
 class Tile
 {
     private:
@@ -29,6 +31,8 @@ class Tile
     public:
         // Constructor
         Tile(string name);
+        // Destructor
+        ~Tile();
         // Moves a player to a certain tile
         void move(Player *p, Dice *d, int remaining);
         // Puts a player in tile's player list
