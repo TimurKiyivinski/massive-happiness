@@ -66,6 +66,10 @@ void MonopolyGame::setup_board_actions()
 {
     Action *_go = new TransAction(200, "Player has passed GO");
     Action *_tax = new TransAction(-60, "Income Tax");
+    // Adds to actions vector
+    _actions.push_back(_go);
+    _actions.push_back(_tax);
+    // Special actions for GO and Income Tax
     Tile *t_go = _board->tile_named("GO");
     Tile *t_tax = _board->tile_named("Income Tax");
     t_go->set_pass_action(_go);
@@ -92,7 +96,8 @@ MonopolyGame::~MonopolyGame()
     for (Player *p: _players)
         delete p;
     for (Action *a: _actions)
-        delete a;
+        if (a != NULL)
+            delete a;
 }
 
 // Returns player at current index, _current_player_idx
@@ -137,9 +142,11 @@ void MonopolyGame::perform_move()
     announce_monopoly_event(_dice_event);
     // Gets and moves the player
     // if they are all same
-    if (!_dice->all_same()) return;
-    Player *_current_player = current_player();
-    _current_player->move(_dice);
+    if (_dice->all_same())
+    {
+        Player *_current_player = current_player();
+        _current_player->move(_dice);
+    }
     // Switches turn
     _current_player_idx++;
     if (_current_player_idx == _players.size())

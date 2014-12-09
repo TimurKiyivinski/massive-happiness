@@ -10,6 +10,7 @@
 
 using namespace std;
 
+// Action that occurs to move the player a certain distance
 class MoveAction: public Action
 {
     private:

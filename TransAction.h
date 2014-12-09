@@ -9,6 +9,7 @@
 
 using namespace std;
 
+// An action that managed the transaction towards the current player
 class TransAction: public Action
 {
     private:

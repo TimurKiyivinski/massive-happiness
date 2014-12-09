@@ -3,6 +3,7 @@
 
 #ifndef EVENTKIND_H
 #define EVENTKIND_H
+// DIfferent event type definitions
 typedef enum {DICE_EVENT,
     PASS_EVENT,
     LAND_EVENT,

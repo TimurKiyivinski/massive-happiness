@@ -24,27 +24,35 @@ string itos(int i)
 string MonopolyEvent::str()
 {
     string returnStr("The following event occured:\n");
-    returnStr += player->str() + " ";
+    returnStr += player->str() + " with cash : " + itos(player->cash()) + " ";
     switch (kind)
     {
         case DICE_EVENT:
             {
                 returnStr += "rolled the dice with value:\n";
+                // Gets the current dice
                 Dice *d = static_cast<Dice*>(other);
+                // Tells user about the dice actions
                 returnStr += itos(d->get_total_value());
+                if (d->all_same())
+                    returnStr += "\nDice match! Player moves.";
                 break;
             }
         case PASS_EVENT:
             {
                 returnStr += "passed the following tile:\n";
+                // Gets the current tile
                 Tile *t = static_cast<Tile*>(other);
+                // Tells user about the tile
                 returnStr += t->str();
                 break;
             }
         case LAND_EVENT:
             {
                 returnStr += "landed on the following tile:\n";
+                // Gets the current tile
                 Tile *t = static_cast<Tile*>(other);
+                // Tells user about the tile
                 returnStr += t->str();
                 break;
             }
@@ -55,7 +63,9 @@ string MonopolyEvent::str()
             }
         case TRANSACTION_EVENT:
             {
+                // Gets cash
                 int *cash = static_cast<int*>(other);
+                // Tells the player of the transaction
                 returnStr += "made a transaction worth: " + itos(*cash);
                 break;
             }

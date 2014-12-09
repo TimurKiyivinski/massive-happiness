@@ -42,7 +42,10 @@ int main(void)
     bool gameLoop(true);
     while (gameLoop)
     {
-        println("\n* Simple Monopoly (alpha):");
+        Player *p = game->current_player();
+        println("\nCurrent player:");
+        println(p->str());
+        println("* Simple Monopoly (alpha):");
         println("* r/R\tRoll Dice");
         println("* t/T\tView Tile");
         println("* q/Q\tQuit\n");
@@ -61,7 +64,6 @@ int main(void)
                 {
                     // Gets information about current tile
                     println("\n~Tile:");
-                    Player *p = game->current_player();
                     Tile *playerTile = p->get_on();
                     println(playerTile->str());
                     break;

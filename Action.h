@@ -6,6 +6,8 @@
 
 class Player;
 
+// An abstract class to perform actions on the player through
+// inherited methods.
 class Action
 {
     public:
